@@ -1,5 +1,14 @@
 // src/users/users.controller.ts
-import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Delete,
+  Param,
+  HttpCode,
+  HttpStatus,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -11,9 +20,10 @@ export class UsersController {
     return this.usersService.create(name, age);
   }
 
-  @Delete('/:id')
-  async remove(@Param('id') id: string) {
-    return this.usersService.remove(id);
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async remove(@Param('id') id: string): Promise<void> {
+    await this.usersService.remove(id);
   }
 
   @Get()
