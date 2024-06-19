@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <div>
-      <h3 className="uppercase">Users</h3>
+      <div className="pt-4 mb-4 text-xl uppercase">USERS</div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -55,7 +55,7 @@ const App = () => {
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
           required
-          className="mt-1 mb-4 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="block w-full px-3 py-2 mt-1 mb-4 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         />
         <input
           type="number"
@@ -63,11 +63,11 @@ const App = () => {
           onChange={(e) => setAge(e.target.value)}
           placeholder="Age"
           required
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         />
         <button
           type="submit"
-          className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Add User
         </button>
@@ -76,7 +76,7 @@ const App = () => {
         {users.map((user: User) => (
           <li
             key={user.id}
-            className="flex justify-between items-center py-2 px-4 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200"
+            className="flex items-center justify-between px-4 py-2 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200"
           >
             {`${user.name} (${user.age})`}
             <DeleteIcon
