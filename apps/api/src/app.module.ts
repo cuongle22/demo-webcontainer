@@ -3,7 +3,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
-import { User } from './users/user.entity';
 
 @Module({
   imports: [
@@ -11,10 +10,11 @@ import { User } from './users/user.entity';
       isGlobal: true,
     }),
     TypeOrmModule.forRoot({
-      type: 'mongodb',
-      url: process.env.DATABASE_URL,
+      type: 'sqlite',
+      // database: ':memory:',
+      database: './database.db',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-      entities: [User],
     }),
     UsersModule,
   ],
