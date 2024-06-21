@@ -11,8 +11,8 @@ import { UsersModule } from './users/users.module';
     }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      // database: ':memory:',
-      database: './database.db',
+      database: ':memory:',
+      // database: './database.db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),

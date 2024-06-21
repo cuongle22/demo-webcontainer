@@ -8,11 +8,13 @@ export class UsersController {
 
   @Post()
   async create(@Body('name') name: string, @Body('age') age: number) {
+    console.log('Create user.....', { name, age });
     return this.usersService.create(name, age);
   }
 
   @Delete('/:id')
   async remove(@Param('id') id: string) {
+    console.log('Delete user.....', { id });
     return this.usersService.remove(id);
   }
 
